@@ -5,20 +5,20 @@ import java.util.List;
 
 public class CreditCard implements Product{
 
-    private BigDecimal fee;
+    private double fee;
     private List<Campaign> campaignList;
     private Bank bank;
 
-    public CreditCard(BigDecimal fee, List<Campaign> campaignList) {
+    public CreditCard(double fee, List<Campaign> campaignList) {
         this.fee = fee;
         this.campaignList = campaignList;
     }
 
-    public BigDecimal getFee() {
+    public double getFee() {
         return fee;
     }
 
-    public void setFee(BigDecimal fee) {
+    public void setFee(double fee) {
         this.fee = fee;
     }
 

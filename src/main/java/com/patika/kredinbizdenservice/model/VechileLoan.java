@@ -14,7 +14,7 @@ public class VechileLoan extends Loan {
 
     }
 
-    public VechileLoan(BigDecimal amount, Integer installment, Double interestRate) {
+    public VechileLoan(double amount, Integer installment, Double interestRate) {
         super(amount, installment, interestRate);
     }
 
@@ -23,7 +23,7 @@ public class VechileLoan extends Loan {
     }
 
     @Override
-    void calculate(BigDecimal amount, int installment) {
+    void calculate(double amount, int installment) {
         //istediği kadar ödeme yapabilir.
     }
 }

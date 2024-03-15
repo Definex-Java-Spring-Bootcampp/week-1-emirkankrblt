@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 
 public abstract class Loan implements Product {
 
-    private BigDecimal amount;
+    private double amount;
     private Integer installment;
     private Bank bank;
     private Double interestRate;
@@ -15,19 +15,19 @@ public abstract class Loan implements Product {
     public Loan() {
     }
 
-    public Loan(BigDecimal amount, Integer installment, Double interestRate) {
+    public Loan(double amount, Integer installment, Double interestRate) {
         this.amount = amount;
         this.installment = installment;
         this.interestRate = interestRate;
     }
 
-    abstract void calculate(BigDecimal amount, int installment);
+    abstract void calculate(double amount, int installment);
 
-    public BigDecimal getAmount() {
+    public double getAmount() {
         return amount;
     }
 
-    public void setAmount(BigDecimal amount) {
+    public void setAmount(double amount) {
         this.amount = amount;
     }
 

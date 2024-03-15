@@ -1,13 +1,16 @@
 package com.patika.kredinbizdenservice.service;
 
+import com.patika.kredinbizdenservice.model.Application;
 import com.patika.kredinbizdenservice.model.User;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class userService {
     private final List<User> users = new ArrayList<>();
     private static userService userServiceObject=null;
+    HashMap<Double,User> hash;
     public  List<User> getUsers() {
         return users;
     }
@@ -50,5 +53,25 @@ public class userService {
             }
         }
         return tempUser;
+    }
+
+
+    public HashMap<Double, User> highestLoanApplication(){
+        hash=new HashMap<Double, User>();
+        double maxLoan=0;
+        User tempUser=null;
+        for (User userl:users) {
+
+            for (Application app:userl.getApplicationList()) {
+                double tempLoan = app.getLoan().getAmount();
+                if(tempLoan > maxLoan){
+                    maxLoan=tempLoan;
+                    tempUser=userl;
+                }
+            }
+        }
+        System.out.println(maxLoan);
+        hash.put(maxLoan,tempUser);
+        return hash;
     }
 }

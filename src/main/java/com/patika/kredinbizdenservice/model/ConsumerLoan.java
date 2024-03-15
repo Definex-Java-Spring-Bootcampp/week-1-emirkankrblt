@@ -3,7 +3,6 @@ package com.patika.kredinbizdenservice.model;
 
 import com.patika.kredinbizdenservice.enums.LoanType;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 public class ConsumerLoan extends Loan {
@@ -15,7 +14,7 @@ public class ConsumerLoan extends Loan {
 
     }
 
-    public ConsumerLoan(BigDecimal amount, Integer installment, Double interestRate) {
+    public ConsumerLoan(double amount, Integer installment, Double interestRate) {
         super(amount, installment, interestRate);
     }
 
@@ -27,7 +26,7 @@ public class ConsumerLoan extends Loan {
     }
 
     @Override
-    void calculate(BigDecimal amount, int installment) {
+    void calculate(double amount, int installment) {
         //tc bul, maaşı bul
     }
 

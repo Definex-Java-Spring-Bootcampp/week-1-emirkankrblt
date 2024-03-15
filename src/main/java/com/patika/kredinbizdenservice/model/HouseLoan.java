@@ -14,7 +14,7 @@ public class HouseLoan extends Loan {
 
     }
 
-    public HouseLoan(BigDecimal amount, Integer installment, Double interestRate) {
+    public HouseLoan(double amount, Integer installment, Double interestRate) {
         super(amount, installment, interestRate);
     }
 
@@ -23,7 +23,7 @@ public class HouseLoan extends Loan {
     }
 
     @Override
-    void calculate(BigDecimal amount, int installment) {
+    void calculate(double amount, int installment) {
 
     }
 }
