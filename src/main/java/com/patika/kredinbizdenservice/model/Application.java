@@ -29,6 +29,8 @@ public class Application {
         this.user = user;
         this.localDateTime = localDateTime;
         this.applicationStatus = ApplicationStatus.INITIAL;
+        this.user.addApplicationList(this);
+
     }
 
     public Application(Loan loan, User user, LocalDateTime localDateTime) {
@@ -36,6 +38,8 @@ public class Application {
         this.user = user;
         this.localDateTime = localDateTime;
         this.applicationStatus = ApplicationStatus.INITIAL;
+        this.user.addApplicationList(this);
+
     }
 
     public Loan getLoan() {

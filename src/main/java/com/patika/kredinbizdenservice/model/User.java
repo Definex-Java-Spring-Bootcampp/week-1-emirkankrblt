@@ -1,6 +1,9 @@
 package com.patika.kredinbizdenservice.model;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 public class User {
@@ -19,18 +22,20 @@ public class User {
         this.surname = surname;
         this.birthDate = birthDate;
         this.email = email;
-        this.password = password;
+        setPassword(password);
         this.phoneNumber = phoneNumber;
         this.isActive = isActive;
+        this.applicationList=new ArrayList<>();
     }
 
     public User(String name, String surname, String email, String password, String phoneNumber, Boolean isActive) {
         this.name = name;
         this.surname = surname;
         this.email = email;
-        this.password = password;
+        setPassword(password);
         this.phoneNumber = phoneNumber;
         this.isActive = isActive;
+        this.applicationList=new ArrayList<>();
     }
 
     public String getName() {
@@ -62,7 +67,17 @@ public class User {
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        try {
+            MessageDigest md = MessageDigest.getInstance("SHA-512");
+            byte[] hashedPassword = md.digest(password.getBytes());
+            StringBuilder sb = new StringBuilder();
+            for (byte b : hashedPassword) {
+                sb.append(String.format("%02x", b));
+            }
+            this.password = sb.toString();
+        }  catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public String getPhoneNumber() {
@@ -93,7 +108,7 @@ public class User {
         return applicationList;
     }
 
-    public void setApplicationList(List<Application> applicationList) {
-        this.applicationList = applicationList;
+    public void addApplicationList(Application application) {
+        applicationList.add(application);
     }
 }

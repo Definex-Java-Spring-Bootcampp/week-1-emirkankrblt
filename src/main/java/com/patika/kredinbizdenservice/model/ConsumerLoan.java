@@ -19,6 +19,9 @@ public class ConsumerLoan extends Loan {
         super(amount, installment, interestRate);
     }
 
+    public ConsumerLoan(int i, int installment, double interestRate) {
+    }
+
     public LoanType getLoanType() {
         return loanType;
     }
